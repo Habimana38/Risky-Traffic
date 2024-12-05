@@ -1,0 +1,202 @@
+/* Général */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    /* Couleur de fond */
+    background-color: #1E1E1E;
+    position: relative;
+    z-index: 0;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    /* Image de fond avec opacité réduite */
+    background-image: url('IMAGE/background.png');
+    background-size: cover;
+    background-position: center;
+
+    /* Réduction de l’opacité */
+    opacity: 0.1;
+
+    /* Assure que la couleur de fond reste visible */
+    background-color: #1E1E1E;
+    background-blend-mode: normal;
+}
+
+@font-face {
+    font-family: 'Mario';
+    src: url('FONT/SuperMario256.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#app {
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+#app h2{
+    font-family: Mario;
+}
+
+/* Logo */
+.logo {
+    width: 350px;
+    margin: 15px auto;
+    display: block;
+}
+
+.logo2 {
+    width: 100px;
+    margin: 20px auto;
+    display: block;
+}
+
+/* Boutons */
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    margin: 15px auto;
+    border: 7px solid white;
+    border-radius: 15px;
+    background-color: #101012;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    font-family: Mario;
+}
+
+.button img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.button-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+
+/* Bouton menu */ 
+
+.button2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.button2 img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.button2:hover {
+    transform: scale(1.1);
+}
+
+.button2-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+
+/* Contenu secondaire */
+#dice-page,
+#rules-page {
+    display: none;
+}
+
+/* Texte des règles */
+.rules-text {
+    margin: 30px;
+    text-align: left;
+}
+
+/* Dé en 3D */
+#dice-container {
+    perspective: 900px;
+    text-align: -webkit-center;
+    height: 240px; /* Ajusté pour s'adapter à un dé plus grand */
+}
+
+.dice {
+    width: 200px; /* Agrandi */
+    height: 200px; /* Agrandi */
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 0.5s ease;
+}
+
+.face {
+    position: absolute;
+    width: 200px; /* Agrandi */
+    height: 200px; /* Agrandi */
+    background: white;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em; /* Texte également agrandi */
+    font-weight: bold;
+    color: black;
+    font-family: Mario;
+}
+
+/* Positions ajustées pour un dé plus grand */
+.front {
+    transform: rotateY(0deg) translateZ(100px); /* 50px -> 100px */
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
